@@ -63,11 +63,13 @@ public class GestionDictionnaire extends Observable{
 	}
 	
 	/**
-	 * Methode qui supprime un mot recu en paramètre du dictionnaire 
+	 * Methode qui supprime un mot recu en paramètre du dictionnaire et
+	 * retourne un message de confirmation
 	 *
 	 * @param pMot
+	 * @return message de confirmation
 	 */
-	public void supprimerMot(String pMot){
+	public String supprimerMot(String pMot){
 		
 		String msg = null;
 		
@@ -80,6 +82,10 @@ public class GestionDictionnaire extends Observable{
 			msg = "Mot introuvable";
 		}
 		
+		listeResultats.clear();
+        notifyObs(listeResultats);	
+		
+		return msg;
 	}
 	
 	/**
@@ -308,6 +314,11 @@ public class GestionDictionnaire extends Observable{
 		listeMotsEnConsultation.remove(pMot.getLibelle());
 	}
 	
+	/**
+	 * Méthode qui sert à sauvegarder les modifications faites au dictionnaire 
+	 * dans un fichier externe
+	 * @throws IOException
+	 */
 	public void sauvegardeFichier() throws IOException
 	{
 		BufferedWriter bufferWrite = null;	
@@ -329,6 +340,7 @@ public class GestionDictionnaire extends Observable{
 				bufferWrite.close();
 			
 	}
+	
 	/**
 	 * Méthode servant à charger le dictionnaire en mémoire
 	 */

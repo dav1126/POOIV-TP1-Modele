@@ -23,11 +23,23 @@ import javafx.scene.image.Image;
  */
 public class FabriqueDictionnaire {
 
-	private static FabriqueDictionnaire instance;
-	private Properties prop;
-	private Map<String, Mot> dictionnaire;
 	/**
-	 * String indiquant le fichier duquel le dictionnaire est créé lors de
+	 * Instance de fabriqueDictionnaire
+	 */
+	private static FabriqueDictionnaire instance;
+	
+	/**
+	 * Propriétés relative au dictionnaire
+	 */
+	private Properties prop;
+	
+	/**
+	 * Map qui sert a sauvegarder les mots du dictionnaire pendant l'éxécution du programme
+	 */
+	private Map<String, Mot> dictionnaire;
+	
+	/**
+	 * String indiquant le fichier à partir duquel le dictionnaire est créé lors de
 	 * la première ouverture du programme
 	 */
 	private static final String fichierMots = "listeMots.txt";
